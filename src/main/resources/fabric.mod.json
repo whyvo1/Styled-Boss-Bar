@@ -8,8 +8,9 @@
 		"Whyvo"
 	],
 	"contact": {
+		"sources": "https://github.com/whyvo1/Styled-Boss-Bar/tree/1.20.1"
 	},
-	"license": "ARR",
+	"license": "MIT License",
 	"icon": "assets/styled-boss-bar/icon.png",
 	"environment": "*",
 	"entrypoints": {
@@ -30,7 +31,7 @@
 	},
 	"depends": {
 		"fabricloader": ">=0.16.10",
-		"minecraft": "~1.20.1",
+		"minecraft": "=1.20.1",
 		"java": ">=17",
 		"fabric-api": "*"
 	}
