@@ -1,0 +1,37 @@
+{
+	"schemaVersion": 1,
+	"id": "styled-boss-bar-api",
+	"version": "${version}",
+	"name": "Styled Boss Bar API",
+	"description": "Design your Styled Boss Bar!",
+	"authors": [
+		"Whyvo"
+	],
+	"contact": {
+	},
+	"license": "ARR",
+	"icon": "assets/styled-boss-bar/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+          "com.whyvo.sbb.StyledBossBarAPI"
+		],
+		"client": [
+          "com.whyvo.sbb.StyledBossBarAPIClient"
+		]
+	},
+	"mixins": [
+		"styled-boss-bar.mixins.json"
+	],
+	"custom": {
+		"loom:injected_interfaces": {
+			"net/minecraft/class_337": ["com/whyvo/sbb/injectface/BossBarHudInjected"]
+		}
+	},
+	"depends": {
+		"fabricloader": ">=0.16.10",
+		"minecraft": "~1.20.1",
+		"java": ">=17",
+		"fabric-api": "*"
+	}
+}
