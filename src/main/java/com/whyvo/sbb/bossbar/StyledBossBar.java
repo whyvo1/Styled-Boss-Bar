@@ -19,7 +19,7 @@ import java.util.Set;
 
 public class StyledBossBar<T extends BossBarStyle> extends BossBar {
     private BossBarStyleEntry<T> bossBarStyle;
-    private final Set<ServerPlayerEntity> players = Sets.<ServerPlayerEntity>newHashSet();
+    private final Set<ServerPlayerEntity> players = Sets.newHashSet();
     private final Set<ServerPlayerEntity> unmodifiablePlayers = Collections.unmodifiableSet(this.players);
     private boolean visible = true;
 

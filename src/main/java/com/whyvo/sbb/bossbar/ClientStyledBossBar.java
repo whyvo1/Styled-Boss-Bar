@@ -1,7 +1,6 @@
 package com.whyvo.sbb.bossbar;
 
 import com.whyvo.sbb.style.BossBarStyle;
-import com.whyvo.sbb.style.BossBarStyleEntry;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.hud.ClientBossBar;
 import net.minecraft.entity.boss.BossBar;
