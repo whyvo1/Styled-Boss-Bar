@@ -134,4 +134,9 @@ public abstract class BossBarHudMixin implements BossBarHudInjected {
         }
         return false;
     }
+
+    @Inject(method = "clear", at = @At("RETURN"))
+    private void injectClear(CallbackInfo ci) {
+        this.styledBossBars.clear();
+    }
 }
