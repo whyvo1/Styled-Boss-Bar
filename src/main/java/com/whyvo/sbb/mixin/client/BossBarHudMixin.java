@@ -35,6 +35,9 @@ public abstract class BossBarHudMixin implements BossBarHudInjected {
     @Unique
     private Map<UUID, ClientStyledBossBar> styledBossBars;
 
+    @Unique
+    private int cachedHeight;
+
     @Inject(method = "<init>", at = @At("RETURN"))
     private void injectInit(MinecraftClient client, CallbackInfo ci) {
         this.styledBossBars = Maps.newHashMap();
@@ -79,19 +82,32 @@ public abstract class BossBarHudMixin implements BossBarHudInjected {
         });
     }
 
+    @Override
+    public Map<UUID, ClientStyledBossBar> styledBossBarAPI$getStyledBossBars() {
+        return this.styledBossBars;
+    }
+
+    @Override
+    public int styledBossBarAPI$getCachedHeight() {
+        return this.cachedHeight;
+    }
+
     @Inject(method = "render", at = @At("HEAD"))
     private void injectRender(DrawContext context, CallbackInfo ci) {
         if (this.bossBars.isEmpty() && !this.styledBossBars.isEmpty()) {
-            this.renderAllStyled(context, 12);
+            this.cachedHeight = this.renderAllStyled(context, 12);
         }
     }
 
     @ModifyVariable(method = "render", at = @At(value = "STORE", ordinal = 0), name = "j")
     private int modifyVariableRender(int j, DrawContext context) {
         if(this.styledBossBars.isEmpty()) {
+            this.cachedHeight = Math.min(context.getScaledWindowHeight() / 3, bossBars.size() * 19);
             return j;
         }
-        return this.renderAllStyled(context, j);
+        int j0 = this.renderAllStyled(context, j);
+        this.cachedHeight = Math.min(context.getScaledWindowHeight() / 3, j0 + bossBars.size() * 19);
+        return j0;
     }
 
     @Unique
