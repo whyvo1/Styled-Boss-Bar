@@ -2,6 +2,32 @@
 
 Design your Styled Boss Bar!
 
+
+
+# Manage Your Project
+
+**build.gradle**
+
+```
+repositories {
+	maven {
+		name = "CurseMaven"
+		url = "https://www.cursemaven.com"
+		content {
+			includeGroup "curse.maven"
+		}
+	}
+}
+
+dependencies {
+	modApi "curse.maven:styled-boss-bar-api-1223966:${project.sbba_file_id}"
+}
+```
+
+Visit [CurseMaven](https://www.cursemaven.com/) to find more information.
+
+
+
 # How to use?
 
 A `BossBarStyle` controls boss bar's render style.
