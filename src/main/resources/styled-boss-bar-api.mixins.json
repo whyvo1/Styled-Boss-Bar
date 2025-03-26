@@ -5,6 +5,7 @@
 	"mixins": [
 	],
 	"client": [
-		"client.BossBarHudMixin"
+		"client.BossBarHudMixin",
+		"client.Jade$ClientProxyMixin"
 	]
 }
